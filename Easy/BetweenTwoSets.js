@@ -1,27 +1,29 @@
-
 function getTotalX(a, b) {
     // Write your code here
-    let arr = [];
-    let l1 = a.length;
-    let l2 = b.length;
-    let counter = 0;
-    
-    for(let i=0;i<l1;i++){
-        arr[i] = a[i];
-    }
-    
-    for(let i=l1;i<l1+l2;i++){
-        arr[i] = b[i-l1];
-    }
-    
-    for(let i=0;i<arr.length;i++){
-        if((arr[i]%a[1]===0) && (arr[i]%a[2]===0) )
-    }
-    
-    console.log(arr);
+   let counter = 0;
+   let isFactor = false;
+  
+   let joined = a.concat(b);
+   
 
-    let counter =0 ;
-    
-    
-    
+   
+   for(let i=a[1];i<b[0];i++){
+       isFactor = false;
+       for(let j=0;j<joined.length;j++){
+           if(joined[j] % i===0){
+               isFactor = true;
+           }else if(i%joined[j]===0){
+               isFactor = true;
+           }else{
+               isFactor = false;
+           }
+           
+       }
+       if(isFactor === true){
+           counter += 1;
+           isFactor = false;
+       }
+   }
+
+    return counter;    
 }
